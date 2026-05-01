@@ -2,7 +2,13 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
+
+// CRITICAL: Force HTML content type
+app.use((req, res, next) => {
+  res.type('html');
+  next();
+});
 
 // Statik dosyalar
 app.use(express.static(__dirname));
@@ -12,7 +18,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Tüm diğer route'lar index.html'e gitsin
+// Fallback
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
