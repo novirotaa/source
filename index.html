@@ -123,7 +123,7 @@
             box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
         
-        /* Services Section */
+        /* Countries Section */
         .services {
             padding: 6rem 5%;
             background: var(--light-bg);
@@ -147,7 +147,7 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2.5rem;
         }
         
@@ -157,7 +157,6 @@
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             transition: transform 0.3s, box-shadow 0.3s;
-            text-align: center;
         }
         
         .service-card:hover {
@@ -179,14 +178,21 @@
         }
         
         .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
             color: var(--dark-text);
+            text-align: center;
         }
         
         .service-card p {
             color: #666;
             line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card p strong {
+            color: var(--primary-orange);
+            font-weight: 600;
         }
         
         /* About Section */
@@ -392,7 +398,7 @@
                 <span>novi rota</span>
             </div>
             <ul class="nav-links">
-                <li><a href="#hizmetler">Hizmetler</a></li>
+                <li><a href="#ulkeler">Ülkeler</a></li>
                 <li><a href="#hakkimizda">Hakkımızda</a></li>
                 <li><a href="#iletisim">İletişim</a></li>
             </ul>
@@ -408,46 +414,30 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="hizmetler">
-        <h2 class="section-title">Hizmetlerimiz</h2>
-        <p class="section-subtitle">Size özel çözümlerle yeni hayatınıza adım atın</p>
+    <!-- Countries Section -->
+    <section class="services" id="ulkeler">
+        <h2 class="section-title">Çalıştığımız Ülkeler</h2>
+        <p class="section-subtitle">Her ülkeye özel danışmanlık hizmetimiz ile yanınızdayız</p>
         
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-icon">🎓</div>
-                <h3>Eğitim Danışmanlığı</h3>
-                <p>Lisans, yüksek lisans ve doktora programları için en uygun üniversiteleri buluyoruz. Başvuru sürecinizi baştan sona yönetiyoruz.</p>
+                <div class="service-icon">🇵🇹</div>
+                <h3>Portekiz</h3>
+                <p><strong>Golden Visa Programı:</strong> 500.000€ yatırım ile oturma izni ve AB vatandaşlığı yolunda ilk adım.</p>
+                <p><strong>D7 Vizesi:</strong> Pasif gelir ile yaşam. Emekliler ve dijital göçebenler için ideal.</p>
+                <p><strong>Tech Visa:</strong> Teknoloji profesyonelleri için hızlı süreç.</p>
+                <p><strong>Eğitim:</strong> Lizbon ve Porto'da kaliteli üniversiteler, uygun yaşam maliyeti.</p>
+                <p><strong>Neden Portekiz?</strong> Güvenli, düşük vergi (NHR rejimi), sıcak iklim, İngilizce yaygın, yüksek yaşam kalitesi.</p>
             </div>
             
             <div class="service-card">
-                <div class="service-icon">💼</div>
-                <h3>İş Vizesi</h3>
-                <p>Kariyer hedeflerinize uygun iş fırsatları ve vize süreçlerinde profesyonel destek sağlıyoruz.</p>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-icon">🏡</div>
-                <h3>Relocation Hizmetleri</h3>
-                <p>Ev bulma, okul kayıtları, banka işlemleri ve günlük yaşam ihtiyaçlarınızda tam destek.</p>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-icon">💰</div>
-                <h3>Yatırım Vizesi</h3>
-                <p>Golden Visa ve yatırım yoluyla oturma izni başvurularınızda uzman rehberlik.</p>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-icon">👨‍👩‍👧</div>
-                <h3>Aile Birleşimi</h3>
-                <p>Ailenizle birlikte yeni hayata başlamanız için tüm süreçleri koordine ediyoruz.</p>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-icon">📄</div>
-                <h3>Vize Danışmanlığı</h3>
-                <p>Tüm vize türlerinde başvuru, evrak hazırlama ve takip süreçlerinde yanınızdayız.</p>
+                <div class="service-icon">🇫🇷</div>
+                <h3>Fransa</h3>
+                <p><strong>Talent Passport:</strong> Yüksek vasıflı profesyoneller için 4 yıllık oturma izni.</p>
+                <p><strong>Student Visa:</strong> Dünya çapında tanınan üniversiteler, Erasmus fırsatları.</p>
+                <p><strong>Entrepreneur Visa:</strong> Startup kurucuları için French Tech desteği.</p>
+                <p><strong>Family Reunification:</strong> Aile birleşimi prosedürleri.</p>
+                <p><strong>Neden Fransa?</strong> Güçlü ekonomi, kültürel zenginlik, merkezi Avrupa konumu, kaliteli sağlık ve eğitim sistemi.</p>
             </div>
         </div>
     </section>
@@ -498,8 +488,8 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="service">İlgilendiğiniz Hizmet</label>
-                    <input type="text" id="service" name="service" placeholder="Örn: Eğitim Danışmanlığı">
+                    <label for="service">İlgilendiğiniz Ülke/Program</label>
+                    <input type="text" id="service" name="service" placeholder="Örn: Portekiz Golden Visa">
                 </div>
                 
                 <div class="form-group">
@@ -516,7 +506,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-links">
-                <a href="#hizmetler">Hizmetler</a>
+                <a href="#ulkeler">Ülkeler</a>
                 <a href="#hakkimizda">Hakkımızda</a>
                 <a href="#iletisim">İletişim</a>
                 <a href="#">Gizlilik Politikası</a>
