@@ -157,6 +157,7 @@
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
         }
         
         .service-card:hover {
@@ -188,11 +189,159 @@
             color: #666;
             line-height: 1.8;
             margin-bottom: 1rem;
+            text-align: center;
         }
         
         .service-card p strong {
             color: var(--primary-orange);
             font-weight: 600;
+        }
+        
+        .learn-more {
+            display: block;
+            text-align: center;
+            color: var(--primary-orange);
+            font-weight: 600;
+            margin-top: 1.5rem;
+            text-decoration: none;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            background-color: var(--white);
+            margin: 3% auto;
+            padding: 0;
+            width: 90%;
+            max-width: 1000px;
+            border-radius: 15px;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.3);
+            max-height: 85vh;
+            overflow-y: auto;
+            animation: slideIn 0.3s;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary-orange), #ff7f5d);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px 15px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-header h2 {
+            font-size: 2rem;
+            margin: 0;
+        }
+        
+        .close {
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: transform 0.2s;
+        }
+        
+        .close:hover {
+            transform: scale(1.1);
+        }
+        
+        .modal-body {
+            padding: 2rem;
+        }
+        
+        .visa-section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .visa-section:last-child {
+            border-bottom: none;
+        }
+        
+        .visa-title {
+            font-size: 1.8rem;
+            color: var(--primary-orange);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .visa-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        
+        .visa-section h4 {
+            font-size: 1.3rem;
+            color: var(--dark-text);
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .visa-section p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .visa-section ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .visa-section li {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+        }
+        
+        .visa-section strong {
+            color: var(--primary-orange);
+        }
+        
+        .highlight-box {
+            background: #fff5f2;
+            border-left: 4px solid var(--primary-orange);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
         }
         
         /* About Section */
@@ -386,6 +535,15 @@
             .services-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+            }
+            
+            .modal-header h2 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -420,14 +578,12 @@
         <p class="section-subtitle">Her ülkeye özel danışmanlık hizmetimiz ile yanınızdayız</p>
         
         <div class="services-grid">
-            <div class="service-card">
+            <div class="service-card" onclick="openModal('portugal')">
                 <div class="service-icon">🇵🇹</div>
                 <h3>Portekiz</h3>
-                <p><strong>Golden Visa Programı:</strong> 500.000€ yatırım ile oturma izni ve AB vatandaşlığı yolunda ilk adım.</p>
-                <p><strong>D7 Vizesi:</strong> Pasif gelir ile yaşam. Emekliler ve dijital göçebenler için ideal.</p>
-                <p><strong>Tech Visa:</strong> Teknoloji profesyonelleri için hızlı süreç.</p>
-                <p><strong>Eğitim:</strong> Lizbon ve Porto'da kaliteli üniversiteler, uygun yaşam maliyeti.</p>
-                <p><strong>Neden Portekiz?</strong> Güvenli, düşük vergi (NHR rejimi), sıcak iklim, İngilizce yaygın, yüksek yaşam kalitesi.</p>
+                <p>Golden Visa, D7 Pasif Gelir Vizesi, Tech Visa, Dijital Göçebe Vizesi ve daha fazlası...</p>
+                <p><strong>9 farklı vize programı</strong> ile size en uygun yolu buluyoruz.</p>
+                <span class="learn-more">Detaylı Bilgi →</span>
             </div>
             
             <div class="service-card">
@@ -441,6 +597,229 @@
             </div>
         </div>
     </section>
+
+    <!-- Portugal Detail Modal -->
+    <div id="portugalModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🇵🇹 Portekiz Vize Programları</h2>
+                <button class="close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- D2 -->
+                <div class="visa-section">
+                    <h3 class="visa-title">D2 - Girişimci Vizesi</h3>
+                    <p class="visa-subtitle">İşlerini büyütürken Portekiz'de yaşamak isteyen girişimciler veya işletme sahipleri için</p>
+                    
+                    <div class="highlight-box">
+                        <p><strong>"Portekiz'de iş kurmak ve hayata geçirmek isteyen girişimciler için idealdir."</strong></p>
+                    </div>
+                    
+                    <h4>Uygunluk Kriterleri</h4>
+                    <ul>
+                        <li>Portekiz'de bir şirket veya şube kurma niyeti</li>
+                        <li>Detaylı iş planı (pazar analizi, finansal öngörü, yatırım bütçesi)</li>
+                        <li>Finansal yeterlilik: Yetişkin başına yıllık ~9.120€, çocuk başına ~4.500-5.000€</li>
+                        <li>Portekiz'de konaklama kanıtı (kira, tapu veya davet mektubu)</li>
+                    </ul>
+                    
+                    <h4>Gerekli Belgeler</h4>
+                    <ul>
+                        <li>Geçerli pasaport (6 ay+ geçerlilik)</li>
+                        <li>İş planı</li>
+                        <li>Finansal yeterlilik kanıtı</li>
+                        <li>Adli sicil kaydı</li>
+                        <li>Sağlık sigortası</li>
+                    </ul>
+                    
+                    <h4>Maliyetler</h4>
+                    <p>Minimum yatırım: ~5.000-15.000€ (iş kurulum + 1 yıllık yaşam giderleri)</p>
+                    
+                    <h4>Nasıl Yardımcı Olabiliriz</h4>
+                    <ul>
+                        <li>İş planı hazırlığı</li>
+                        <li>Şirket kuruluşu ve NIF alınması</li>
+                        <li>Oturum başvurusu ve AIMA/SEF randevusu</li>
+                        <li>Taşınma süreci desteği</li>
+                    </ul>
+                </div>
+
+                <!-- D3 -->
+                <div class="visa-section">
+                    <h3 class="visa-title">D3 - Yüksek Nitelikli Faaliyet Vizesi</h3>
+                    <p class="visa-subtitle">Nitelikli profesyoneller, araştırmacılar, teknoloji uzmanları, mühendisler, doktorlar, akademisyenler için</p>
+                    
+                    <h4>Avantajlar</h4>
+                    <ul>
+                        <li>Hızlandırılmış başvuru süreci</li>
+                        <li>Sağlık, eğitim ve sosyal güvenlik erişimi</li>
+                        <li>Aile birleşimi imkânı</li>
+                        <li>5 yıl sonra kalıcı oturum veya vatandaşlık</li>
+                        <li>İş planı veya yatırım zorunluluğu yok</li>
+                    </ul>
+                    
+                    <h4>Uygunluk</h4>
+                    <ul>
+                        <li>Yükseköğretim diploması (lisans+)</li>
+                        <li>Portekiz'den bağlayıcı iş sözleşmesi</li>
+                        <li>Minimum maaş: ~1.470€/ay (2025)</li>
+                    </ul>
+                    
+                    <h4>Geçerlilik</h4>
+                    <p>Vize: 120 gün | İlk oturum: 2 yıl | Yenilenebilir</p>
+                </div>
+
+                <!-- D4 -->
+                <div class="visa-section">
+                    <h3 class="visa-title">D4 - Öğrenci Vizesi</h3>
+                    <p class="visa-subtitle">Eğitim görmek veya akademik gelişimini sürdürmek isteyen öğrenciler ve araştırmacılar için</p>
+                    
+                    <h4>Avantajlar</h4>
+                    <ul>
+                        <li>Yarı zamanlı çalışma (20 saat/hafta)</li>
+                        <li>Kamu sağlık sistemi erişimi</li>
+                        <li>Schengen vizesiz seyahat</li>
+                        <li>5 yıl sonra vatandaşlık başvurusu</li>
+                    </ul>
+                    
+                    <h4>Finansal Gereklilik</h4>
+                    <p>Aylık en az 820€ veya yıllık ~9.840€</p>
+                    
+                    <h4>Geçerlilik</h4>
+                    <p>Vize: 120 gün | İlk oturum: 3 yıl | Uzatılabilir</p>
+                </div>
+
+                <!-- D6 -->
+                <div class="visa-section">
+                    <h3 class="visa-title">D6 - Aile Birleşimi Vizesi</h3>
+                    <p class="visa-subtitle">Portekiz'deki aile üyelerine katılmak isteyenler için</p>
+                    
+                    <h4>Kapsanan Aile Üyeleri</h4>
+                    <ul>
+                        <li>Eş</li>
+                        <li>Reşit olmayan çocuklar</li>
+                        <li>Bakmakla yükümlü olunan ebeveynler</li>
+                        <li>Evlat edinilen çocuklar</li>
+                    </ul>
+                </div>
+
+                <!-- D7 -->
+                <div class="visa-section">
+                    <h3 class="visa-title">D7 - Pasif Gelir Vizesi</h3>
+                    <p class="visa-subtitle">Emekliler, serbest çalışanlar, uzaktan çalışanlar ve düzenli pasif gelire sahip olanlar için</p>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Minimum Gelir:</strong> Aylık 820€+</p>
+                        <p><strong>Kalma Şartı:</strong> Yılda 183 gün</p>
+                        <p><strong>Vatandaşlık:</strong> 5 yıl sonra</p>
+                    </div>
+                    
+                    <h4>Avantajlar</h4>
+                    <ul>
+                        <li>Aile birleşimi imkânı</li>
+                        <li>5 yıl sonra vatandaşlık</li>
+                        <li>AB oturumu</li>
+                    </ul>
+                </div>
+
+                <!-- D8 -->
+                <div class="visa-section">
+                    <h3 class="visa-title">D8 - Dijital Göçebe Vizesi</h3>
+                    <p class="visa-subtitle">Uzaktan çalışanlar, freelancer'lar ve girişimciler için</p>
+                    
+                    <h4>İki Tür D8</h4>
+                    <ul>
+                        <li><strong>Geçici Kalış:</strong> 1 yıla kadar, yenilenebilir</li>
+                        <li><strong>Oturum Vizesi:</strong> Kalıcı oturum ve vatandaşlık yolu</li>
+                    </ul>
+                    
+                    <h4>Gelir Gereksinimi</h4>
+                    <p>Aylık minimum 3.280€ (2024)</p>
+                    
+                    <h4>Avantajlar</h4>
+                    <ul>
+                        <li>Yasal oturum</li>
+                        <li>Sağlık ve kamu hizmetlerine erişim</li>
+                        <li>Uygun yaşam maliyeti</li>
+                        <li>Vatandaşlık yolu</li>
+                    </ul>
+                    
+                    <h4>Dezavantajlar</h4>
+                    <ul>
+                        <li>Yoğun evrak süreci</li>
+                        <li>12 aylık kira sözleşmesi gereksinimi</li>
+                        <li>Vergi yükümlülükleri (183+ gün kalışta)</li>
+                    </ul>
+                </div>
+
+                <!-- D9 - Golden Visa -->
+                <div class="visa-section">
+                    <h3 class="visa-title">D9 - Golden Visa (Yatırım Yoluyla Oturum)</h3>
+                    <p class="visa-subtitle">Yatırımcılar için</p>
+                    
+                    <div class="highlight-box">
+                        <p><strong>⚠️ Önemli:</strong> 2023'ten itibaren gayrimenkul yatırımı geçerli değil</p>
+                    </div>
+                    
+                    <h4>2025 Yatırım Seçenekleri</h4>
+                    <ul>
+                        <li><strong>Girişim Sermayesi Fonları:</strong> 500.000€+</li>
+                        <li><strong>Bilimsel Araştırma:</strong> 500.000€+</li>
+                        <li><strong>Kültürel Miras:</strong> 250.000€+ (düşük yoğunluklu bölgelerde 200.000€)</li>
+                        <li><strong>İstihdam Yaratma:</strong> En az 10 iş (düşük yoğunluklu bölgelerde 8)</li>
+                    </ul>
+                    
+                    <h4>Avantajlar</h4>
+                    <ul>
+                        <li>Esnek oturum: Yılda sadece 7 gün kalma şartı</li>
+                        <li>Aile dahil edilebilir</li>
+                        <li>AB içinde serbest dolaşım</li>
+                        <li>Vergi avantajları (NHR rejimi)</li>
+                    </ul>
+                    
+                    <h4>Dezavantajlar</h4>
+                    <ul>
+                        <li>Yüksek maliyet (min. 250.000€)</li>
+                        <li>Gayrimenkul seçeneği kaldırıldı</li>
+                        <li>Uzun işlem süresi (12+ ay)</li>
+                        <li>Vatandaşlık için A2 Portekizce</li>
+                    </ul>
+                </div>
+
+                <!-- HQA -->
+                <div class="visa-section">
+                    <h3 class="visa-title">HQA - Yüksek Nitelikli Faaliyet Oturum Programı</h3>
+                    <p class="visa-subtitle">Girişimciler ve teknoloji inovasyonları için Golden Visa alternatifi</p>
+                    
+                    <div class="highlight-box">
+                        <p><strong>"175.000€ HQA Yolu"</strong> - Golden Visa'ya stratejik alternatif</p>
+                    </div>
+                    
+                    <h4>HQA Nedir?</h4>
+                    <p>D3 Vizesi çerçevesine dayanan, iş sözleşmesi gerektirmeyen özel oturum programı. Portekiz'de inovasyon odaklı iş kurmanıza yardımcı olur.</p>
+                    
+                    <h4>Kimler İçin Uygun?</h4>
+                    <ul>
+                        <li>Girişimciler</li>
+                        <li>Startup odaklı profesyoneller</li>
+                        <li>Yüksek net değerli bireyler</li>
+                        <li>Plan B arayanlar (ikinci oturum)</li>
+                    </ul>
+                    
+                    <h4>Yatırım Kapsamı</h4>
+                    <ul>
+                        <li>Şirket kuruluşu ve kurulumu</li>
+                        <li>Ar-Ge iş birlikleri</li>
+                        <li>Kuluçka merkezi desteği</li>
+                        <li>Hukuki ve göçmenlik işlemleri</li>
+                    </ul>
+                    
+                    <h4>Geçerlilik</h4>
+                    <p>Vize: 120 gün | İlk oturum: 3 yıl | Uzatılabilir</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- About Section -->
     <section class="about" id="hakkimizda">
@@ -516,6 +895,34 @@
     </footer>
 
     <script>
+        // Modal functions
+        function openModal(country) {
+            if (country === 'portugal') {
+                document.getElementById('portugalModal').style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        
+        function closeModal() {
+            document.getElementById('portugalModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('portugalModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -530,7 +937,7 @@
             });
         });
 
-        // Form submission - DATABASE'e kaydet
+        // Form submission
         document.querySelector('.contact-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             
