@@ -41,7 +41,43 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+        /* Header Actions */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.get-started-btn {
+    background: var(--primary-orange);
+    color: var(--white);
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+    white-space: nowrap;
+}
+
+.get-started-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 95, 61, 0.4);
+}
+
+.search-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: transform 0.2s;
+    color: var(--dark-text);
+}
+
+.search-btn:hover {
+    transform: scale(1.1);
+}
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
@@ -515,6 +551,73 @@
         
         /* Responsive */
 @media (max-width: 768px) {
+
+    nav {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .logo {
+        order: 1;
+    }
+    
+    .header-actions {
+        order: 2;
+        margin-left: auto;
+    }
+    
+    .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .get-started-btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .search-btn {
+        font-size: 1.3rem;
+    }
+    
+    .logo-icon {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .about-image {
+        height: 300px;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 5% auto;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.5rem;
+    }
+}
     .logo-icon {
         width: 80px;
         height: 80px;
@@ -556,18 +659,21 @@
 <body>
     <!-- Header -->
     <header>
-        <nav>
-            <div class="logo">
-                <div class="logo-icon"></div>
-        
-            </div>
-            <ul class="nav-links">
-                <li><a href="#ulkeler">Ülkeler</a></li>
-                <li><a href="#hakkimizda">Hakkımızda</a></li>
-                <li><a href="#iletisim">İletişim</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav>
+        <div class="logo">
+            <div class="logo-icon"></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#ulkeler">Ülkeler</a></li>
+            <li><a href="#hakkimizda">Hakkımızda</a></li>
+            <li><a href="#iletisim">İletişim</a></li>
+        </ul>
+        <div class="header-actions">
+            <a href="#iletisim" class="get-started-btn">→ Get Started</a>
+            <button class="search-btn" onclick="alert('Arama özelliği yakında eklenecek!')">🔍</button>
+        </div>
+    </nav>
+</header>
 
     <!-- Hero Section -->
     <section class="hero">
