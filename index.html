@@ -883,22 +883,27 @@
     </div>
 </section>
 /* Country Details - Inline */
+/* Country Details - Inline */
 .country-details {
-    background: var(--white);
-    padding: 4rem 5%;
+    background: var(--light-bg);
+    padding: 5rem 5%;
     border-top: 3px solid var(--primary-orange);
 }
 
 .country-details-container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.1);
     position: relative;
 }
 
 .close-details {
     position: absolute;
-    top: -2rem;
-    right: 0;
+    top: 2rem;
+    right: 2rem;
     background: var(--primary-orange);
     color: white;
     border: none;
@@ -908,6 +913,7 @@
     font-weight: 600;
     cursor: pointer;
     transition: transform 0.3s;
+    z-index: 10;
 }
 
 .close-details:hover {
@@ -915,14 +921,23 @@
 }
 
 #detailsContent {
-    padding: 2rem 0;
+    padding: 3rem 0 1rem 0;
+}
+
+#detailsContent h2 {
+    margin-top: 0;
+    padding-top: 0;
 }
 
 /* Visa sections styling */
 .visa-section {
     margin-bottom: 3rem;
-    padding-bottom: 2rem;
+    padding: 2rem 0;
     border-bottom: 2px solid #f0f0f0;
+}
+
+.visa-section:first-child {
+    padding-top: 0;
 }
 
 .visa-section:last-child {
@@ -984,7 +999,11 @@
 /* Mobile - Country Details */
 @media (max-width: 768px) {
     .country-details {
-        padding: 2rem 5%;
+        padding: 3rem 4%;
+    }
+    
+    .country-details-container {
+        padding: 2rem 1.5rem;
     }
     
     .close-details {
@@ -992,6 +1011,11 @@
         width: 100%;
         margin-bottom: 1.5rem;
     }
+    
+    #detailsContent {
+        padding: 2rem 0 0.5rem 0;
+    }
+}
     
     .visa-title {
         font-size: 1.4rem;
